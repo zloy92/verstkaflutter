@@ -40,53 +40,77 @@ class Body extends StatelessWidget {
                   thickness: 1.5,
                 ),
                 SizedBox(height: kDefaultPadding),
-                Container(
-                  padding: EdgeInsets.all(kDefaultPadding),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25)),
-                  child: Column(
-                    children: [
-                      Text(
-                        sample_data[0]['question'],
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6
-                            ?.copyWith(color: kBlackColor),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: kDefaultPadding),
-                        padding: EdgeInsets.all(kDefaultPadding),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: kGrayColor),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "1. Test",
-                              style: TextStyle(color: kGrayColor, fontSize: 16),
-                            ),
-                            Container(
-                              height: 26,
-                              width: 26,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: kGrayColor),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                QuestionCard(),
               ],
             ),
           ),
         )
       ],
+    );
+  }
+}
+
+class QuestionCard extends StatelessWidget {
+  const QuestionCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(kDefaultPadding),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(25)),
+      child: Column(
+        children: [
+          Text(
+            sample_data[0]['question'],
+            style: Theme.of(context)
+                .textTheme
+                .headline6
+                ?.copyWith(color: kBlackColor),
+          ),
+          Option(),
+          Option(),
+          Option(),
+          Option(),
+        ],
+      ),
+    );
+  }
+}
+
+class Option extends StatelessWidget {
+  const Option({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: kDefaultPadding),
+      padding: EdgeInsets.all(kDefaultPadding),
+      decoration: BoxDecoration(
+        border: Border.all(color: kGrayColor),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "1. Test",
+            style: TextStyle(color: kGrayColor, fontSize: 16),
+          ),
+          Container(
+            height: 26,
+            width: 26,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              border: Border.all(color: kGrayColor),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
