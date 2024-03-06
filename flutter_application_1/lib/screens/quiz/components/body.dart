@@ -13,14 +13,19 @@ class Body extends StatelessWidget {
     return Stack(
       children: [
         SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ProgressBar(),
-                SizedBox(height: kDefaultPadding),
-                Text.rich(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: ProgressBar(),
+              ),
+              SizedBox(height: kDefaultPadding),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Text.rich(
                   TextSpan(
                     text: "Question 1",
                     style: Theme.of(context)
@@ -37,13 +42,17 @@ class Body extends StatelessWidget {
                     ],
                   ),
                 ),
-                Divider(
-                  thickness: 1.5,
+              ),
+              Divider(
+                thickness: 1.5,
+              ),
+              SizedBox(height: kDefaultPadding),
+              Expanded(
+                child: PageView.builder(
+                  itemBuilder: (context, index) => QuestionCard(),
                 ),
-                SizedBox(height: kDefaultPadding),
-                QuestionCard(),
-              ],
-            ),
+              ),
+            ],
           ),
         )
       ],
