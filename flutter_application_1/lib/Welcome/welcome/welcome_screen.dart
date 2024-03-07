@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants.dart';
 
+import 'package:flutter_application_1/screens/quiz/quiz_screen.dart';
+
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
@@ -37,7 +39,14 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   Spacer(),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                QuizScreen()), // Переход на экран с викториной
+                      );
+                    },
                     child: Container(
                       width: double.infinity,
                       alignment: Alignment.center,
